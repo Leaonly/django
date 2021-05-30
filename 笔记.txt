@@ -1,0 +1,61 @@
+
+# 安装django
+pip insatll django==2.2.2
+pip install mysqlclient
+
+# 生成 & 同步到数据库
+python3 manage.py makemigrations
+python3 manage.py migrate
+
+
+## note项目 ===============================
+mkdir day06 && cd day06
+django-admin startproject tedu_note
+python3 manage.py startapp user
+
+# 启动
+python3 manage.py runserver 0.0.0.0:8000
+
+
+# mysql
+create database tedu_note default charset utf8;
+
+# settings.py配置
+ALLOWED_HOSTS = ['192.168.170.136']
+INSTALLED_APPS
+'user',
+#'django.middleware.csrf.CsrfViewMiddleware',
+DATABASES
+LANGUAGE_CODE = 'zh-Hans'
+TIME_ZONE = 'Asia/Shanghai'
+
+
+
+
+## Django 模版(template)中 的 {{}} 和 {%%} 是什么作用
+只需要记两种特殊符号：
+{{ }}和 {% %}
+变量相关的用{{}}，逻辑相关的用{%%}。
+举个例子：
+{% for person in person_list %}
+
+    <p>{{ person.name }}</p>
+    
+{% endfor %}
+
+# app/admin.py
+from .models import Note
+
+# Register your models here.
+class NoteManager(admin.ModelAdmin):
+    # 列表页显示哪些字段的列
+    list_display = ['id', 'title', 'content', 'user_id', 'is_active']
+    # 链接到修改页
+    list_display_links = ['title']
+    # 添加搜索框
+    search_fields = ['title', 'content']
+admin.site.register(Note, NoteManager)
+
+
+# django后台 创建用户
+python3 manage.py createsuperuser
