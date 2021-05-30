@@ -1,0 +1,76 @@
+nohup: ignoring input
+Watching for file changes with StatReloader
+[20/May/2021 09:45:56] "GET /admin/login/?next=/admin/ HTTP/1.1" 200 1821
+[20/May/2021 09:45:56] "GET /static/admin/css/login.css HTTP/1.1" 304 0
+[20/May/2021 09:45:56] "GET /static/admin/css/base.css HTTP/1.1" 304 0
+[20/May/2021 09:45:56] "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+[20/May/2021 09:45:56] "GET /static/admin/css/fonts.css HTTP/1.1" 304 0
+[20/May/2021 09:45:56] "GET /static/admin/fonts/Roboto-Light-webfont.woff HTTP/1.1" 304 0
+[20/May/2021 09:45:56] "GET /static/admin/fonts/Roboto-Regular-webfont.woff HTTP/1.1" 304 0
+[20/May/2021 09:45:59] "GET /birthday/12/12/2011 HTTP/1.1" 200 30
+/app/mysite1/mysite1/views.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 17 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+May 20, 2021 - 09:44:22
+Django version 2.2.12, using settings 'mysite1.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Watching for file changes with StatReloader
+/app/mysite1/mysite1/urls.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 17 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+May 20, 2021 - 20:16:44
+Django version 2.2.12, using settings 'mysite1.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Watching for file changes with StatReloader
+/app/mysite1/mysite1/views.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 17 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+May 20, 2021 - 20:17:31
+Django version 2.2.12, using settings 'mysite1.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Watching for file changes with StatReloader
+[20/May/2021 20:18:11] "GET /birthday/12/12/2011 HTTP/1.1" 200 30
+[20/May/2021 20:18:20] "GET /test_request HTTP/1.1" 200 15
+/app/mysite1/mysite1/views.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 17 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+May 20, 2021 - 20:17:54
+Django version 2.2.12, using settings 'mysite1.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+path info is  /test_request
+method is  GET
+Watching for file changes with StatReloader
+/app/mysite1/mysite1/views.py changed, reloading.
+Performing system checks...
+
+System check identified no issues (0 silenced).
+
+You have 17 unapplied migration(s). Your project may not work properly until you apply the migrations for app(s): admin, auth, contenttypes, sessions.
+Run 'python manage.py migrate' to apply them.
+May 20, 2021 - 20:20:34
+Django version 2.2.12, using settings 'mysite1.settings'
+Starting development server at http://0.0.0.0:8000/
+Quit the server with CONTROL-C.
+Watching for file changes with StatReloader
+[20/May/2021 20:20:47] "GET /test_request HTTP/1.1" 200 15
+[20/May/2021 20:21:20] "GET /test_request HTTP/1.1" 200 15
