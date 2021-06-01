@@ -1,0 +1,10 @@
+
+
+<title>test csrf</title>
+<body>
+    <form action="/test_csrf" method="POST">
+        {% csrf_token %}
+    <input type="text" name="username">
+    <input type="submit" value="提交">
+    </form>
+</body>
