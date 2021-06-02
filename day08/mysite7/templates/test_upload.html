@@ -1,0 +1,19 @@
+
+
+<title>上传文件</title>
+
+<body>
+    
+    <form action="/test_upload" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>
+        <input type="text" name="title">
+        </p>
+        <p>
+        <input type="file" name="myfile">
+        </p>
+        <p>
+        <input type="submit" value="上传">
+        </p>
+    </form>
+</body>

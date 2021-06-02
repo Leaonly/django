@@ -1,9 +1,13 @@
-import time
+import time, os
+from django.conf import settings
 from django.http import HttpResponse
 from django.views.decorators.cache import cache_page
 from django.shortcuts import render
 from django.core.paginator import Paginator
 import csv
+from django.views.decorators.csrf import csrf_exempt
+from upload_app.models import Content 
+
 
 @cache_page(150)
 def test_cache(request):
@@ -60,4 +64,30 @@ def make_page_csv(request):
         writer.writerow([b])
     return response
 
-    
+
+# day08
+def test_upload(request):
+
+    if request.method == 'GET':
+        return render(request, 'test_upload.html')
+    elif request.method == 'POST':
+        title = request.POST['title']
+        myfile =  request.FILES['myfile']
+
+        Content.objects.create(title=title, picture=myfile)
+        return HttpResponse('---上传文件成功---')
+
+@csrf_exempt
+def upload_view(request):
+
+    if request.method == 'GET':
+        return render(request, 'test_upload.html')
+    elif request.method == 'POST':
+        a_file = request.FILES['myfile']
+        print('上传文件名是:', a_file.name)
+        filename = os.path.join(settings.MEDIA_ROOT, a_file.name)
+        with open(filename, 'wb') as f:
+            data = a_file.file.read()
+            f.write(data)
+        return HttpResponse('接收文件:' + a_file.name + '成功')
+

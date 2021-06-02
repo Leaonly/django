@@ -20,21 +20,21 @@ class MyMW(MiddlewareMixin):
 
         return response
 
-class MyMW2(MiddlewareMixin):
+# class MyMW2(MiddlewareMixin):
 
-    def process_request(self, request):
+#     def process_request(self, request):
 
-        print('Mymw2 process_request do ---')
+#         print('Mymw2 process_request do ---')
 
-    def process_view(self, request, callback, callback_args, cllback_kwargs):
+#     def process_view(self, request, callback, callback_args, cllback_kwargs):
 
-        print('Mymw2 process_view do ---')
+#         print('Mymw2 process_view do ---')
 
-    def process_response(self, request, response):
+#     def process_response(self, request, response):
 
-        print('Mymw2 process_response do ---')
+#         print('Mymw2 process_response do ---')
 
-        return response
+#         return response
 
 class VisitLimit(MiddlewareMixin):
 

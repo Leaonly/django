@@ -16,6 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +28,9 @@ urlpatterns = [
     path('test_page', views.test_page),
     path('test_csv', views.test_csv),
     path('make_page_csv', views.make_page_csv),
+
+    # day08
+    path('test_upload', views.test_upload),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

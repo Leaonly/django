@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -25,7 +26,7 @@ SECRET_KEY = '(1nqi%$ws%s1e&s34@nyjb$f!e!21gp#84xl-&a&k&m2s)+wx+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['192.168.170.136', '127.0.0.1']
+ALLOWED_HOSTS = ['192.168.170.136', '127.0.0.1', 'localhost']
 
 
 # Application definition
@@ -37,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'upload_app',
 ]
 
 MIDDLEWARE = [
@@ -48,7 +50,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'middleware.mymiddleware.MyMW',
-    'middleware.mymiddleware.MyMW2',
+    #'middleware.mymiddleware.MyMW2',
     #'middleware.mymiddleware.VisitLimit',
 ]
 
@@ -138,3 +140,7 @@ CACHES = {
         }
     }
 }
+
+# 上传文件配置
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
