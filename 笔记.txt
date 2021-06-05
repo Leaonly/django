@@ -43,7 +43,7 @@ TIME_ZONE = 'Asia/Shanghai'
     
 {% endfor %}
 
-# app/admin.py
+# 配置后台 app/admin.py
 from .models import Note
 
 # Register your models here.
@@ -59,3 +59,26 @@ admin.site.register(Note, NoteManager)
 
 # django后台 创建用户
 python3 manage.py createsuperuser
+
+
+# EMAIL
+# 开启邮箱授权码
+from django.core import mail
+mail.send_mail(subject='zabbix mail', message='haha', from_email='fewrghrehr@163.com', recipient_list=['1007682044@qq.com'])
+
+## uWSGI
+sudo pip3 install uwsgi=='2.0.18'
+pip3 freeze| grep -i 'uwsgi'
+# 启动
+uwsgi --ini uwsgi.ini
+# 关闭
+uwsgi --stop uwsgi.pid
+# nginx.conf的location配置
+uwsgi_pass 192.168.170.136:8000;
+include /etc/nginx/uwsgi_params;
+
+
+# 静态文件配置 settings.py
+STATIC_ROOT = '/app/mysite7_static/static'
+# 复制静态文件到以上目录
+python3 manage.py collectstatic
