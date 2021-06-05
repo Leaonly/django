@@ -1,0 +1,207 @@
+*** Starting uWSGI 2.0.18 (64bit) on [Thu Jun  3 10:49:48 2021] ***
+compiled with version: 4.8.5 20150623 (Red Hat 4.8.5-16) on 03 June 2021 02:31:05
+os: Linux-3.10.0-693.el7.x86_64 #1 SMP Tue Aug 22 21:09:27 UTC 2017
+nodename: node1-test-10030-war
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /app/day08/mysite7/mysite7
+writing pidfile to uwsgi.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /app/day08/mysite7
+your processes number limit is 4096
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+probably another instance of uWSGI is running on the same address (127.0.0.1:8000).
+bind(): Address already in use [core/socket.c line 769]
+*** Starting uWSGI 2.0.18 (64bit) on [Thu Jun  3 10:52:17 2021] ***
+compiled with version: 4.8.5 20150623 (Red Hat 4.8.5-16) on 03 June 2021 02:31:05
+os: Linux-3.10.0-693.el7.x86_64 #1 SMP Tue Aug 22 21:09:27 UTC 2017
+nodename: node1-test-10030-war
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /app/day08/mysite7/mysite7
+writing pidfile to uwsgi.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /app/day08/mysite7
+your processes number limit is 4096
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 127.0.0.1:8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:7601 (port auto-assigned) fd 3
+Python version: 3.6.8 (default, Nov 16 2020, 16:55:22)  [GCC 4.8.5 20150623 (Red Hat 4.8.5-44)]
+Python main interpreter initialized at 0xd25b00
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 166688 bytes (162 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0xd25b00 pid: 77753 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 77753)
+spawned uWSGI worker 1 (pid: 77755, cores: 2)
+spawned uWSGI http 1 (pid: 77756)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 77756)
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Thu Jun  3 11:09:45 2021] ***
+compiled with version: 4.8.5 20150623 (Red Hat 4.8.5-16) on 03 June 2021 02:31:05
+os: Linux-3.10.0-693.el7.x86_64 #1 SMP Tue Aug 22 21:09:27 UTC 2017
+nodename: node1-test-10030-war
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /app/day08/mysite7/mysite7
+writing pidfile to uwsgi.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /app/day08/mysite7
+your processes number limit is 4096
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uWSGI http bound on 0.0.0.0:8000 fd 4
+uwsgi socket 0 bound to TCP address 127.0.0.1:17185 (port auto-assigned) fd 3
+Python version: 3.6.8 (default, Nov 16 2020, 16:55:22)  [GCC 4.8.5 20150623 (Red Hat 4.8.5-44)]
+Python main interpreter initialized at 0x1b84b00
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 166688 bytes (162 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x1b84b00 pid: 78068 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 78068)
+spawned uWSGI worker 1 (pid: 78070, cores: 2)
+spawned uWSGI http 1 (pid: 78071)
+Mymw process_request do ---
+Mymw process_view do ---
+Mymw process_response do ---
+[pid: 78070|app: 0|req: 1/1] 192.168.170.35 () {38 vars in 740 bytes} [Thu Jun  3 11:09:51 2021] GET /test_upload => generated 472 bytes in 81 msecs (HTTP/1.1 200) 5 headers in 291 bytes (1 switches on core 0)
+Mymw process_request do ---
+Mymw process_view do ---
+Mymw process_response do ---
+[pid: 78070|app: 0|req: 2/2] 192.168.170.35 () {40 vars in 829 bytes} [Thu Jun  3 11:10:13 2021] GET /test_upload => generated 472 bytes in 8 msecs (HTTP/1.1 200) 5 headers in 291 bytes (1 switches on core 1)
+Mymw process_request do ---
+Mymw process_view do ---
+Mymw process_response do ---
+[pid: 78070|app: 0|req: 3/3] 192.168.170.35 () {40 vars in 829 bytes} [Thu Jun  3 11:14:09 2021] GET /test_upload => generated 472 bytes in 5 msecs (HTTP/1.1 200) 5 headers in 291 bytes (1 switches on core 0)
+SIGINT/SIGQUIT received...killing workers...
+gateway "uWSGI http 1" has been buried (pid: 78071)
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+*** Starting uWSGI 2.0.18 (64bit) on [Thu Jun  3 15:09:43 2021] ***
+compiled with version: 4.8.5 20150623 (Red Hat 4.8.5-16) on 03 June 2021 02:31:05
+os: Linux-3.10.0-693.el7.x86_64 #1 SMP Tue Aug 22 21:09:27 UTC 2017
+nodename: node1-test-10030-war
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 2
+current working directory: /app/day08/mysite7/mysite7
+writing pidfile to uwsgi.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /app/day08/mysite7
+your processes number limit is 4096
+your memory page size is 4096 bytes
+detected max file descriptor number: 65535
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 0.0.0.0:8000     # 此模式需要nginx fd 3
+Python version: 3.6.8 (default, Nov 16 2020, 16:55:22)  [GCC 4.8.5 20150623 (Red Hat 4.8.5-44)]
+Python main interpreter initialized at 0x1b76a10
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 166688 bytes (162 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x1b76a10 pid: 81407 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 81407)
+spawned uWSGI worker 1 (pid: 81409, cores: 2)
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+Mymw process_request do ---
+Mymw process_view do ---
+Mymw process_response do ---
+[pid: 81409|app: 0|req: 1/1] 192.168.170.35 () {42 vars in 838 bytes} [Thu Jun  3 15:11:02 2021] GET /test_upload => generated 472 bytes in 76 msecs (HTTP/1.1 200) 5 headers in 291 bytes (1 switches on core 1)
+Mymw process_request do ---
+Mymw process_response do ---
+Not Found: /favicon.ico
+[pid: 81409|app: 0|req: 2/2] 192.168.170.35 () {42 vars in 787 bytes} [Thu Jun  3 15:11:02 2021] GET /favicon.ico => generated 2873 bytes in 23 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Mymw process_request do ---
+Mymw process_view do ---
+Mymw process_response do ---
+[pid: 81409|app: 0|req: 3/3] 192.168.170.35 () {44 vars in 869 bytes} [Thu Jun  3 15:16:30 2021] GET /test_upload => generated 472 bytes in 6 msecs (HTTP/1.1 200) 5 headers in 291 bytes (1 switches on core 1)
+Mymw process_request do ---
+Mymw process_response do ---
+Not Found: /test_upload1
+[pid: 81409|app: 0|req: 4/4] 192.168.170.35 () {42 vars in 840 bytes} [Thu Jun  3 15:19:13 2021] GET /test_upload1 => generated 2876 bytes in 14 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Mymw process_request do ---
+Mymw process_view do ---
+Mymw process_response do ---
+[pid: 81409|app: 0|req: 5/5] 192.168.170.35 () {42 vars in 838 bytes} [Thu Jun  3 15:19:22 2021] GET /test_upload => generated 472 bytes in 5 msecs (HTTP/1.1 200) 5 headers in 291 bytes (1 switches on core 1)
+[pid: 81409|app: 0|req: 6/6] 192.168.170.35 () {42 vars in 826 bytes} [Thu Jun  3 15:21:51 2021] GET /admin => generated 0 bytes in 3 msecs (HTTP/1.1 301) 3 headers in 112 bytes (1 switches on core 0)
+Mymw process_request do ---
+Mymw process_view do ---
+Mymw process_response do ---
+[pid: 81409|app: 0|req: 7/7] 192.168.170.35 () {42 vars in 828 bytes} [Thu Jun  3 15:21:51 2021] GET /admin/ => generated 0 bytes in 42 msecs (HTTP/1.1 302) 7 headers in 265 bytes (1 switches on core 1)
+Mymw process_request do ---
+Mymw process_view do ---
+Mymw process_response do ---
+[pid: 81409|app: 0|req: 8/8] 192.168.170.35 () {42 vars in 865 bytes} [Thu Jun  3 15:21:51 2021] GET /admin/login/?next=/admin/ => generated 1821 bytes in 88 msecs (HTTP/1.1 200) 7 headers in 395 bytes (1 switches on core 0)
+Mymw process_request do ---
+Mymw process_request do ---
+Mymw process_response do ---
+Not Found: /static/admin/css/login.css
+[pid: 81409|app: 0|req: 10/9] 192.168.170.35 () {42 vars in 785 bytes} [Thu Jun  3 15:21:51 2021] GET /static/admin/css/login.css => generated 2918 bytes in 13 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Mymw process_request do ---
+Mymw process_response do ---
+Not Found: /static/admin/css/base.css
+[pid: 81409|app: 0|req: 11/10] 192.168.170.35 () {42 vars in 783 bytes} [Thu Jun  3 15:21:51 2021] GET /static/admin/css/base.css => generated 2915 bytes in 21 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 1)
+Mymw process_response do ---
+Not Found: /static/admin/css/responsive.css
+[pid: 81409|app: 0|req: 11/11] 192.168.170.35 () {42 vars in 795 bytes} [Thu Jun  3 15:21:51 2021] GET /static/admin/css/responsive.css => generated 2933 bytes in 11 msecs (HTTP/1.1 404) 3 headers in 102 bytes (1 switches on core 0)
+Mymw process_request do ---
+Mymw process_view do ---
+Mymw process_response do ---
+[pid: 81409|app: 0|req: 12/12] 192.168.170.35 () {44 vars in 896 bytes} [Thu Jun  3 15:33:24 2021] GET /admin/login/?next=/admin/ => generated 1821 bytes in 41 msecs (HTTP/1.1 200) 7 headers in 395 bytes (1 switches on core 1)
+Mymw process_request do ---
+Mymw process_view do ---
+Mymw process_response do ---
+[pid: 81409|app: 0|req: 13/13] 192.168.170.35 () {44 vars in 896 bytes} [Thu Jun  3 15:35:20 2021] GET /admin/login/?next=/admin/ => generated 1821 bytes in 46 msecs (HTTP/1.1 200) 7 headers in 395 bytes (1 switches on core 0)
+Mymw process_request do ---
+Mymw process_view do ---
+Mymw process_response do ---
+[pid: 81409|app: 0|req: 14/14] 192.168.170.35 () {44 vars in 896 bytes} [Thu Jun  3 15:36:11 2021] GET /admin/login/?next=/admin/ => generated 1821 bytes in 37 msecs (HTTP/1.1 200) 7 headers in 395 bytes (1 switches on core 1)
+Mymw process_request do ---
+Mymw process_view do ---
+Mymw process_response do ---
+[pid: 81409|app: 0|req: 15/15] 192.168.170.35 () {44 vars in 896 bytes} [Thu Jun  3 15:36:39 2021] GET /admin/login/?next=/admin/ => generated 1821 bytes in 53 msecs (HTTP/1.1 200) 7 headers in 395 bytes (1 switches on core 0)
+Mymw process_request do ---
+Mymw process_view do ---
+Mymw process_response do ---
+[pid: 81409|app: 0|req: 16/16] 192.168.170.35 () {44 vars in 896 bytes} [Thu Jun  3 16:41:16 2021] GET /admin/login/?next=/admin/ => generated 1821 bytes in 51 msecs (HTTP/1.1 200) 7 headers in 395 bytes (1 switches on core 1)
+Mymw process_request do ---
+Mymw process_view do ---
+Mymw process_response do ---
+[pid: 81409|app: 0|req: 17/17] 192.168.170.35 () {44 vars in 896 bytes} [Thu Jun  3 19:17:51 2021] GET /admin/login/?next=/admin/ => generated 1821 bytes in 41 msecs (HTTP/1.1 200) 7 headers in 395 bytes (1 switches on core 0)

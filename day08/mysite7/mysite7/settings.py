@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '(1nqi%$ws%s1e&s34@nyjb$f!e!21gp#84xl-&a&k&m2s)+wx+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['192.168.170.136', '127.0.0.1', 'localhost']
 
@@ -52,6 +52,7 @@ MIDDLEWARE = [
     'middleware.mymiddleware.MyMW',
     #'middleware.mymiddleware.MyMW2',
     #'middleware.mymiddleware.VisitLimit',
+    'middleware.mymiddleware.ExceptionMW',
 ]
 
 ROOT_URLCONF = 'mysite7.urls'
@@ -127,6 +128,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = '/app/mysite7_static/static'
 
 # 数据库缓存配置
 CACHES = {
@@ -144,3 +146,13 @@ CACHES = {
 # 上传文件配置
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# 邮件配置
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.163.com'
+EMAIL_PORT = 25
+EMAIL_HOST_USER = 'fewrghrehr@163.com'
+EMAIL_HOST_PASSWORD = 'WYUUBQYDWMEJXJTJ'
+EX_MAIL = ['1007682044@qq.com']
+
+ADMINS = [('django告警', '1007682044@qq.com'), ('zabbix', 'fewrghrehr@163.com')]

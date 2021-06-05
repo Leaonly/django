@@ -6,7 +6,8 @@ from django.shortcuts import render
 from django.core.paginator import Paginator
 import csv
 from django.views.decorators.csrf import csrf_exempt
-from upload_app.models import Content 
+from upload_app.models import Content
+from django.views.decorators.debug import sensitive_variables, sensitive_post_parameters
 
 
 @cache_page(150)
@@ -66,9 +67,11 @@ def make_page_csv(request):
 
 
 # day08
+@sensitive_variables()
 def test_upload(request):
 
     if request.method == 'GET':
+        aa = 123
         return render(request, 'test_upload.html')
     elif request.method == 'POST':
         title = request.POST['title']

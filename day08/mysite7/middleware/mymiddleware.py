@@ -1,8 +1,9 @@
 from django.http.response import HttpResponse
 from django.utils.deprecation import MiddlewareMixin
 import re
-
-
+import traceback
+from django.core import mail
+from django.conf import settings
 
 class MyMW(MiddlewareMixin):
 
@@ -54,3 +55,14 @@ class VisitLimit(MiddlewareMixin):
             return
         return HttpResponse('你已访问过' + str(times) + '次,访问被禁止!')
 
+class ExceptionMW(MiddlewareMixin):
+
+    def process_exception(self, request, exception):
+
+        print(exception)
+        print(traceback.format_exc())
+
+        mail.send_mail(subject='mysite7报错', message=traceback.format_exc(), from_email='fewrghrehr@163.com', recipient_list=settings.EX_MAIL)
+        return HttpResponse('--- web site busy')
+
+        
