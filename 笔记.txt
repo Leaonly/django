@@ -17,7 +17,9 @@ python3 manage.py startapp user
 python3 manage.py runserver 0.0.0.0:8000
 
 
-# mysql
+# mysql配置
+密码 qAV2dzw=
+create database rmysite1 default charset utf8;
 create database tedu_note default charset utf8;
 
 # settings.py配置
@@ -25,7 +27,16 @@ ALLOWED_HOSTS = ['192.168.170.136']
 INSTALLED_APPS
 'user',
 #'django.middleware.csrf.CsrfViewMiddleware',
-DATABASES
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mysite7',
+        'USER': 'root',
+        'PASSWORD': 'qAV2dzw=',
+        'HOST': '192.168.170.136',
+        'PORT': '3306'
+    }
+}
 LANGUAGE_CODE = 'zh-Hans'
 TIME_ZONE = 'Asia/Shanghai'
 
@@ -82,3 +93,70 @@ include /etc/nginx/uwsgi_params;
 STATIC_ROOT = '/app/mysite7_static/static'
 # 复制静态文件到以上目录
 python3 manage.py collectstatic
+
+============ redis ===================
+
+# 安装pyredis库
+sudo pip3 install redis
+
+
+# 修改配置文件
+vim /etc/redis.conf
+protected-mode no
+# bind 127.0.0.1
+requirepass 123456
+sudo systemctl restart redis 
+
+# 命令
+set uname wwww  # nx不存在才加key，ex过期时间s 
+get uname  #查看key
+exists key  #查看是否存在
+strlen key #长度
+getrange key start stop  #获取范围切片内容
+setrange key index value #聪索引值开始用value替换原内容
+mset key1 value1 key2 value2 #批量添加
+mget key1 key2  #获取多个key
+INCR k1  #加1
+DECR k1  #减1
+INCRBY k1 11  #k1加11
+DECRBY k1 11  #减11
+flushdb   #清当前库
+flushall  # 清所有库
+EXPIRE k1 1000  #设过期时间
+TTL k1  #查过期时间
+# 列表
+LPUSH key value1 value2  #左边插入
+RPUSH key value1 value2  #右边插入
+LRANGE l1 0 -1  #查看列表
+LLEN l1  #查看列表长度
+RPOPLPUSH src dst  #src最后元素插入到dst表
+LPOP l1  #删最左元素
+RPOP l1  #删最右元素
+# 位图
+SETBIT key offset value  #offset:偏移量(索引) value:0或1
+GETBIT key offset
+BITCOUNT key start end  #字节索引
+# 哈希类型(类似字典)
+HSET key field value
+HSETNX key field value  #NX不存在添加
+HMSET key field value field value
+HLEN key
+HEXISTS key field 
+HGET key field
+HMGET key field1 field2
+HGETALL key
+HVALS key  #拿全部值
+HDEL key field  #删除field
+HINCRBY h1 age 2  #age字段加2,增量运算
+
+
+
+
+
+
+
+
+
+
+
+

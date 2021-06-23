@@ -1,0 +1,16 @@
+
+<title>更新个人信息</title>
+
+<form action="/user/update" method="POST">
+    {% csrf_token %}
+<p>
+    用户名: <input type="text" name='username'>
+</p>
+
+<p>
+    个人描述: <input type="text" name="desc">
+</p>
+<p>
+    <input type="submit" value="更新">
+</p>
+</form>
