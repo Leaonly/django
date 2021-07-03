@@ -148,7 +148,6 @@ HGETALL key
 HVALS key  #拿全部值
 HDEL key field  #删除field
 HINCRBY h1 age 2  #age字段加2,增量运算
-test
 
 
 
