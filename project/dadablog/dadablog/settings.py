@@ -37,11 +37,15 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
+    'user',
+    'dtoken',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -79,7 +83,7 @@ DATABASES = {
         'NAME': 'dadablog',
         'USER': 'root',
         'PASSWORD': 'qAV2dzw=',
-        'HOST': '127.0.0.1',
+        'HOST': '192.168.170.136',
         'PORT': '3306'
     }
 }
@@ -114,11 +118,49 @@ TIME_ZONE = 'Asia/Shanghai'
 USE_I18N = True
 
 USE_L10N = True
-
-USE_TZ = True
+# 设False，数据库存储时间是按照TIME_ZONE时区存储
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOW_METHODS = (
+                'DELETE',
+                'GET',
+                'OPTIONS',
+                'PATCH',
+                'POST',
+                'PUT',
+)
+
+CORS_ALLOW_HEADERS = (
+                'accept-encoding',
+                'authorization',
+                'content-type',
+                'dnt',
+                'origin',
+                'user-agent',
+                'x-csrftoken',
+                'x-requested-with',
+)
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+JWT_TOKEN_KEY = '123456'
+
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://192.168.170.136:6379",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            #"PASSWORD": "123456",
+        }
+    }
+}

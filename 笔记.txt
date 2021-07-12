@@ -1,7 +1,15 @@
 
 # 安装django
-pip insatll django==2.2.2
-pip install mysqlclient
+sudo yum install python3
+sudo yum install python3-devel
+# sudo yum install python36-mysql
+sudo pip3 install django==2.2.2
+
+sudo yum install gcc* mariadb-devel
+sudo pip3 install mysqlclient 
+# sudo pip3 install --upgrade setuptools
+# sudo python3 -m pip install --upgrade pip
+# sudo pip3 install mysqlclient -i http://pypi.douban.com/simple/ --trusted-host pypi.douban.com
 
 # 生成 & 同步到数据库
 python3 manage.py makemigrations
@@ -95,6 +103,11 @@ STATIC_ROOT = '/app/mysite7_static/static'
 python3 manage.py collectstatic
 
 ============ redis ===================
+# 安装redis 
+sudo wget -O /etc/yum.repos.d/epel.repo http://mirrors.aliyun.com/repo/epel-7.repo
+sudo yum install -y redis 
+sudo service redis start 
+sudo systemctl enable redis 
 
 # 安装pyredis库
 sudo pip3 install redis
@@ -107,7 +120,7 @@ protected-mode no
 requirepass 123456
 sudo systemctl restart redis 
 
-# 命令
+## 命令==
 set uname wwww  # nx不存在才加key，ex过期时间s 
 get uname  #查看key
 exists key  #查看是否存在
@@ -148,12 +161,78 @@ HGETALL key
 HVALS key  #拿全部值
 HDEL key field  #删除field
 HINCRBY h1 age 2  #age字段加2,增量运算
+# 集合
+SADD key member1 member2  #添加元素
+SMEMBER key  #查看元素
+SREM key member1  #删除元素
+SISMEMBER key member  #元素是否存在
+SRANDMEMBER KEY [COUNT]  #随机返回指定个数元素
+SPOP KEY [COUNT]  #弹出成员
+SCARD KEY  #返回元素个数
+SMOVE source destination member #移动元素
+SDIFF key1 key2  #差集
+SDIFFSTORE destination key1 key2  #差集保存到一个集合
+SINTER key1 key2  #交集
+SINTERSTORE destination key1 key2  
+SUNION key1 key2  #并集
+SUNIONSTORE destination key1 key2 
+OBJECT encoding s1  #查看类型
+# 有序集合
+zadd key score member  #插入元素
+zrange key start stop  #查看区间元素（升序）
+zrange z1 0 -1 withscores #带分
+zrevrange key start stop  #查看区间元素（降序）
+zscore key member  #查看元素分值
+zrank key member  #查看排名
+zrevrank key member  #倒序排名
+zrangebyscore key min max [withscores] [limit offset count ]
+#返回区间 limit分页, offset:(m-1)*n , count:n
+zrem key member  #删除成员
+zincrby key increment member  #增减分
+zincrby z1 -100 gxn
+zcount keyh min max #返回范围元素个数
+zount z1 0 (1000   #大于等于0小于1000
+zunionstore des numkeys key [weights 权重] [AGGREGATE SUM|MIN|MAX]  #并集
+zunionstore z3 2 z1 z2 aggregate max weights 0.5 1  #z1*0.5 z2*1 
+zinterstore des numkeys key [weights 权重] [AGGREGATE SUM|MIN|MAX]  #交集
 
+## 持久化
+#RDB
+save 900 1
+dbfilename dump.rdb
+命令执行 bgsave
 
+#AOF
+appendonly yes
+appendfsync everysec
 
+## 主从复制
+# 命令行执行
+redis-server --port 6300 --slaveof 127.0.0.1 6379
+# redis终端执行
+SLAVEOF 127.0.0.1 6379
+SLAVEOF no one
 
+# 配置文件启动从
+vim redis_6300.conf
+slaveof 127.0.0.1 6379
+port 6300
+daemonize yes  #后台启动
+redis-server redis_6300.conf
 
+## 哨兵
+vim /etc/sentinel.conf
+port 26379
+sentinel monitor tedu 127.0.0.1 6379 1 
+# 启动
+redis-sentinel sentinel.conf  
+redis-server sentinel.conf --sentinel
+# py代码操作哨兵
+from redis.sentinel import Sentinel
 
+## 跨域
+sudo pip3 install django-cors-headers
+pip3 freeze | grep -i 'cors'
 
 
 
