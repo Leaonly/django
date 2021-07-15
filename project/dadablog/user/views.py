@@ -9,6 +9,8 @@ import random
 from django.core.cache import cache
 from tools.logging_dec import logging_check
 from tools.sms import YunTongXin
+from django.conf import settings
+from .tasks import send_sms_c
 
 # 异常码 10100 - 10199
 # django提供一个装饰器method_decorator,可以将函数装饰器转换成类方法装饰器
@@ -129,18 +131,15 @@ def sms_view(request):
         return JsonResponse({'code':10111, 'error':'The code is already existed'})
     cache.set(cache_key, code, 60)
     #发送随机码 -> 短信
-    send_sms(phone, code)
+    #send_sms(phone, code)
+
+    # celery版发送
+    send_sms_c.delay(phone, code)
     return JsonResponse({'code':200})
 
 def send_sms(phone, code):
-
-    config = {
-        "accountSid": "8a216da87a332d53017a804ca2f42148",
-        "accountToken": "37b852667015483db467901db6ccbc9e",
-        "appId": "8a216da87a332d53017a804ca3db214f",
-        "templateId": "1"
-    }
-
+    # 引用settings.py配置
+    config = settings.MY_CONFIG
 
     yun = YunTongXin(**config)
     res = yun.run(phone, code)

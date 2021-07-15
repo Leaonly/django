@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'user',
     'dtoken',
+    'topic',
 ]
 
 MIDDLEWARE = [
@@ -163,4 +164,11 @@ CACHES = {
             #"PASSWORD": "123456",
         }
     }
+}
+
+MY_CONFIG = {
+    "accountSid": "8a216da87a332d53017a804ca2f42148",
+    "accountToken": "37b852667015483db467901db6ccbc9e",
+    "appId": "8a216da87a332d53017a804ca3db214f",
+    "templateId": "1"
 }
