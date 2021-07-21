@@ -13,6 +13,6 @@ class Topic(models.Model):
     limit = models.CharField(max_length=20, verbose_name='文章权限')
     introduce = models.CharField(max_length=90, verbose_name='文章简介')
     content = models.TextField(verbose_name='文章内容')
-    create_time = models.DateTimeField(auto_now_add=True)
+    created_time = models.DateTimeField(auto_now_add=True)
     update_time = models.DateTimeField(auto_now=True)
     author = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
