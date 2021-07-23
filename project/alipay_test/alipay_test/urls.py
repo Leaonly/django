@@ -1,4 +1,4 @@
-"""dadablog URL Configuration
+"""alipay_test URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.2/topics/http/urls/
@@ -13,26 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django import urls
 from django.contrib import admin
 from django.urls import path
-from django.urls.conf import include
 from . import views
-from django.conf.urls.static import static
-from django.conf import settings
-from user import views as user_views
-from dtoken import views as dtoken_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('test_cors', views.test_cors),
-    path('v1/users', user_views.UserViews.as_view()),
-    path('v1/users/', include('user.urls')),
-    path('v1/tokens', dtoken_views.tokens),
-    path('v1/topics/', include('topic.urls')),
-    path('v1/messages/', include('message.urls'))
-
+    path('payment/url', views.OrderView.as_view()),
+    path('payment/result', views.ResultView.as_view()),
 ]
-
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
