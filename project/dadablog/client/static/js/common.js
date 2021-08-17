@@ -1,4 +1,5 @@
-$(document).ready(function () {
+// $(document).ready();
+function dom() {
     //检测ie 6789
     if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))) {
         window.scrollReveal = new scrollReveal({
@@ -53,11 +54,11 @@ $(document).ready(function () {
     /*mnav dl open*/
     var oH2 = document.getElementsByTagName('h2')[0];
     var oUl = document.getElementsByTagName('dl')[0];
-    oH2.onclick = function () {
-        var style = oUl.style;
-        style.display = style.display == 'block' ? 'none' : 'block';
-        oH2.className = style.display == 'block' ? 'open' : '';
-    };
+        oH2.onclick = function () {
+            var style = oUl.style;
+            style.display = style.display == 'block' ? 'none' : 'block';
+            oH2.className = style.display == 'block' ? 'open' : '';
+        };
     //菜单点击效果
     $('.list_dt').on('click', function () {
         $('.list_dd').stop();
@@ -71,19 +72,19 @@ $(document).ready(function () {
 
     //设置固定关注我们
 
-    if ($('#follow-us')) {
-        var followUsPosition = $('#follow-us').offset().top;
-        window.onscroll = function () {
-            var nowPosition = document.documentElement.scrollTop;
-            if (nowPosition - followUsPosition > 0) {
-                setTimeout(function () {
-                    $('#follow-us').attr('class', 'guanzhu gd');
-                }, 150);
-            } else {
-                $('#follow-us').attr('class', 'guanzhu');
-            }
-        };
-    }
+    // if ($('#follow-us')) {
+    //     var followUsPosition = $('#follow-us').offset().top;
+    //     window.onscroll = function () {
+    //         var nowPosition = document.documentElement.scrollTop;
+    //         if (nowPosition - followUsPosition > 0) {
+    //             setTimeout(function () {
+    //                 $('#follow-us').attr('class', 'guanzhu gd');
+    //             }, 150);
+    //         } else {
+    //             $('#follow-us').attr('class', 'guanzhu');
+    //         }
+    //     };
+    // }
 
 
     //回到顶部
@@ -110,9 +111,7 @@ $(document).ready(function () {
             scrollTop: 0,
         }, scroll_top_duration);
     });
-
-});
-
+}
 
 function makeHeader(blog_username, username){
     //blog_username 当前访问的博客的作者

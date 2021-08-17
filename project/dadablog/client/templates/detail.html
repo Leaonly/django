@@ -17,8 +17,8 @@ A ny individuals and organizations and not for commercial use, professiona websi
 	<script src="/static/js/jquery.easyfader.min.js"></script>
 	<script src="/static/js/scrollReveal.js"></script>
 	<script src="/static/js/wangEditor.js"></script>
-	<script src="/static/js/common.js"></script>
 	<script src="/static/js/xcConfirm.js"></script>
+    <script src="/static/js/common.js"></script>
 </head>
 
 <body>
@@ -90,6 +90,9 @@ A ny individuals and organizations and not for commercial use, professiona websi
                 }
 
                 html_body += '</div>';
+                html_body += '<div class="pay_ds">';
+                html_body += '<button id="btn1" name="btn1">打赏</button>'
+                html_body += '</div>';
                 html_body += '<div class="news_pl">';
                 html_body += '<h2>文章评论</h2>';
                 html_body += '<ul>';
@@ -110,8 +113,8 @@ A ny individuals and organizations and not for commercial use, professiona websi
                     html_body += '</span>';
                     html_body += '</div>';
 
-                    avatar_url = 'http://127.0.0.1:8000/media/' + messages_list[message].publisher_avatar
-                    html_body  += '<div><img alt="" src="' + avatar_url + '" class="commentAvatar avatar-32 commentPhoto" height="32" width="32" /></div>';
+                    // avatar_url = 'http://127.0.0.1:8000/media/' + messages_list[message].publisher_avatar
+                    // html_body  += '<div><img alt="" src="' + avatar_url + '" class="commentAvatar avatar-32 commentPhoto" height="32" width="32" /></div>';
                     html_body += '<div class="body">';
                     html_body += messages_list[message].content;
                     html_body += '</div>';
@@ -188,7 +191,25 @@ A ny individuals and organizations and not for commercial use, professiona websi
                         }
                      }
                 })
+
+
             });
+
+            // 打赏
+            var topic_id = '881227'
+            post_data = {'topic_id':topic_id}
+            $('#btn1').on('click', function(){
+                $.ajax({
+                    url:"http://127.0.0.1:8000/payment/url",
+                    type:"post",
+                    contentType:"application/json",
+                    dataType:"json",
+                    data: JSON.stringify(post_data),
+                    success: function(data){
+                        window.location.href = data.pay_url
+                    }
+                })
+            })
 
             //弹窗
             var list = document.getElementsByClassName('replyComment');
@@ -235,11 +256,11 @@ A ny individuals and organizations and not for commercial use, professiona websi
 
             }else{
 
-                  alert(result.error)
+                alert(result.error)
 
-                }
             }
-        })
+        }
+    })
 
 </script>
 

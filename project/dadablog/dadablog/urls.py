@@ -22,6 +22,7 @@ from django.conf.urls.static import static
 from django.conf import settings
 from user import views as user_views
 from dtoken import views as dtoken_views
+from pay import views as pay_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -30,8 +31,9 @@ urlpatterns = [
     path('v1/users/', include('user.urls')),
     path('v1/tokens', dtoken_views.tokens),
     path('v1/topics/', include('topic.urls')),
-    path('v1/messages/', include('message.urls'))
-
+    path('v1/messages/', include('message.urls')),
+    path('payment/url', pay_views.OrderView.as_view()),
+    path('payment/result', pay_views.ResultView.as_view()),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

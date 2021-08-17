@@ -83,7 +83,6 @@ class TopicViews(View):
         for m in msg_list:
             if m['id'] in rep_dic:
                 m['reply'] = rep_dic[m['id']]
-        print(msg_list)
 
         res = {'code':200, 'data':{}}
         res['data']['nickname'] = author.nickname

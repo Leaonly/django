@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'dtoken',
     'topic',
     'message',
+    'pay'
 ]
 
 MIDDLEWARE = [
@@ -60,7 +61,7 @@ ROOT_URLCONF = 'dadablog.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'client/templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -128,6 +129,7 @@ USE_TZ = False
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'client/static'),)
 
 CORS_ORIGIN_ALLOW_ALL = True
 
@@ -173,3 +175,10 @@ MY_CONFIG = {
     "appId": "8a216da87a332d53017a804ca3db214f",
     "templateId": "1"
 }
+
+
+ALIPAY_KEY_DIRS = os.path.join(BASE_DIR, 'client/static/key_file/')
+ALIPAY_APPID = '2021000117692498'
+ALIPAY_RETURN_URL = 'http://127.0.0.1:8000/payment/result'
+# 正式需公网地址
+ALIPAY_NOTIFY_URL = 'http://127.0.0.1:8000/payment/result'
