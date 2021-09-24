@@ -1,0 +1,31 @@
+
+-----------------------
+Host: 192.168.170.6 (devi7.wpxgame.com)
+State : up
+---------------------
+protocol : tcp
+port : 22	state : open
+-----------------------
+Host: 192.168.170.7 (host.wpxgame.com)
+State : up
+---------------------
+protocol : tcp
+port : 80	state : open
+-----------------------
+Host: 192.168.170.8 (wmcehua.wpxgame.com)
+State : up
+---------------------
+protocol : tcp
+port : 22	state : open
+-----------------------
+Host: 192.168.170.102 ()
+State : up
+---------------------
+protocol : tcp
+port : 22	state : open
+port : 80	state : open
+port : 111	state : open
+port : 139	state : open
+port : 445	state : open
+port : 1080	state : open
+port : 5353	state : open

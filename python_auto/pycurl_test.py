@@ -31,12 +31,12 @@ CONNECT_TIME = c.getinfo(pycurl.CONNECT_TIME)
 PRETRANSFER_TIME = c.getinfo(pycurl.PRETRANSFER_TIME)
 
 STARTTRANSFER_TIME = c.getinfo(pycurl.STARTTRANSFER_TIME)
-
+SIZE_DOWNLOAD = c.getinfo(pycurl.SIZE_DOWNLOAD)
 HTTP_CODE = c.getinfo(pycurl.HTTP_CODE)
 
 # 打印输出相关数据
 print('HTTP状态码：%s' % (HTTP_CODE))
-
-
+print('DNS解析时间：%.2f ms' % (NAMELOOKUP_TIME*1000))
+print('下载数据包大小：%d byte' % (SIZE_DOWNLOAD))
 indexfile.close()
 c.close()
