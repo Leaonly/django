@@ -1,4 +1,3 @@
-from base64 import decode
 import paramiko
 
 hostname = '192.168.129.135'
