@@ -12,3 +12,4 @@ ssh.connect(hostname=hostname, username=username, password=password)
 stdin, stdout, stderr = ssh.exec_command('free -h')
 print(stdout.read().decode('utf_8'))
 ssh.close()
+
